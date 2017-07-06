@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace BloodForLifeXamarin.Models
 {
     public class Donor
     {
+        [PrimaryKey]
         public int DonorID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

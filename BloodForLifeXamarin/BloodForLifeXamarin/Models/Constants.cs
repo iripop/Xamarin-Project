@@ -13,5 +13,8 @@ namespace BloodForLifeXamarin.Models
         public static Color BackgroundColor = Color.FromRgb(192, 29, 1);
         public static Color MainTextColor = Color.White;
         public static int LoginIconHeight = 200;
+
+        //------Login------
+        public static string LoginUrl = "https://test.com/api/Auth/Login";
     }
 }

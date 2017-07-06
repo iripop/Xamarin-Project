@@ -31,12 +31,18 @@ namespace BloodForLifeXamarin.Views
             Entry_Password.Completed += (s, e) => SignInProcedure(s, e);
         }
 
-        void SignInProcedure(object sender, EventArgs e)
+        async void SignInProcedure(object sender, EventArgs e)
         {
             Donor donor = new Donor(Entry_Username.Text, Entry_Password.Text);
             if (donor.CheckLoginInfo())
             {
                 DisplayAlert("Login", "Login Success", "Ok");
+                var result = await App.RestService.Login(donor);
+                if (result.access_token != null)
+                {
+                    App.DonorDatabase.SaveDonor(donor);
+                }
+                
             }
             else
             {
